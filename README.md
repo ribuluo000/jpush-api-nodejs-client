@@ -1,5 +1,35 @@
 # JPush API client library for Node.js
 
+
+im:
+[https://docs.jiguang.cn/jpush/client/iOS/ios_faq/](https://docs.jiguang.cn/jpush/client/iOS/ios_faq/)
+
+Jpush推送Notification iOS在appstore 版本收不到（客户端配置正确--jpush后台可以推过来，但是自己的后台推不过来）的解决方法：
+
+```js
+client.push().setPlatform('ios', 'android')
+    .setAudience(JPush.tag('555', '666'), JPush.alias('666,777'))
+    .setNotification('Hi, JPush', JPush.ios('ios alert','tishiyin.mp3',), JPush.android('android alert', null, 1))
+    .setMessage('msg content')
+    .setOptions(null, 60)   //todo important 
+    .send(function(err, res) {
+        if (err) {
+            console.log(err.message)
+        } else {
+            console.log('Sendno: ' + res.sendno)
+            console.log('Msg_id: ' + res.msg_id)
+        }
+    });
+```
+
+[https://github.com/jpush/jpush-api-nodejs-client/blob/master/doc/api.md](https://github.com/jpush/jpush-api-nodejs-client/blob/master/doc/api.md)
+
+setOptions 
+image:
+
+
+
+
 [![Build Status](https://travis-ci.org/jpush/jpush-api-nodejs-client.svg?branch=master)](https://travis-ci.org/jpush/jpush-api-nodejs-client)
 
 本 SDK 提供 JPush 服务端接口的 Node 封装，与 JPush Rest API 组件通信。使用时引用该模块即可，可参考附带 Demo 学习使用方法。
