@@ -26,7 +26,7 @@ client.push().setPlatform('ios', 'android')
 
 setOptions 
 image:
-
+![image](https://github.com/ribuluo000/jpush-api-nodejs-client/blob/master/WX20171122-184957%402x.png)
 
 
 
